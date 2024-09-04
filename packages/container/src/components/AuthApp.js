@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from "react";
 import { mount } from "auth/AuthApp";
 import { useHistory } from "react-router-dom";
 
-export default () => {
+export default ({setIsSignedIn}) => {
     const ref = useRef();
     const history = useHistory();
     useEffect(() => {
@@ -13,6 +13,10 @@ export default () => {
                 if (pathname !== nextPathname) {
                     history.push(nextPathname);
                 }
+            },
+            onSignIn: () => {
+               console.log("user signed in"); 
+               setIsSignedIn(true);
             }
         });
         history.listen(onContainerNavigate)

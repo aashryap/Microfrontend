@@ -8,14 +8,17 @@ const getnerateClassNames = createGenerateClassName({
     productionPrefix: "au"
 });
 
-const App = ({history}) => {
-    console.log("AUTH APP SSADSSADASd")
+const App = ({history, onSignIn}) => {
     return <div>
         <StylesProvider generateClassName={getnerateClassNames}>
             <Router history={history}>
                 <Switch>
-                    <Route path="/auth/signin" component={SignIn} />
-                    <Route path="/auth/signup" component={SignUp} />
+                    <Route path="/auth/signin">
+                        <SignIn onSignIn={onSignIn} />
+                    </Route>
+                    <Route path="/auth/signup">
+                        <SignUp onSignIn={onSignIn} /> 
+                    </Route>
                 </Switch>
             </Router>
         </StylesProvider>
