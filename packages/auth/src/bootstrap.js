@@ -25,7 +25,7 @@ const mount = (el, {onNavigate, defaultHistory, initialPathName}) => {
 // If we are running in isolation
 
 if (process.env.NODE_ENV === 'development') {
-    const devRoot = document.getElementById("marketing-dev-root");
+    const devRoot = document.getElementById("auth-dev-root");
     const history = createBrowserHistory(); // when running app in isolation we will use default history
     if (devRoot) {
         mount(devRoot, {
